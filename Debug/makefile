@@ -147,34 +147,34 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-mlx90614-library-while-version.out \
+mlx90614-library.out \
 
 EXE_OUTPUTS__QUOTED += \
-"mlx90614-library-while-version.out" \
+"mlx90614-library.out" \
 
 BIN_OUTPUTS += \
-mlx90614-library-while-version.hex \
+mlx90614-library.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"mlx90614-library-while-version.hex" \
+"mlx90614-library.hex" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "mlx90614-library-while-version.out"
+	@$(MAKE) --no-print-directory -Onone "mlx90614-library.out"
 
 # Tool invocations
-mlx90614-library-while-version.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+mlx90614-library.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: MSP430 Linker'
-	"C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/bin/cl430" -vmspx --code_model=large --data_model=restricted --near_data=none --use_hw_mpy=none --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"mlx90614-library-while-version.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccs1011/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/lib" -i"C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="mlx90614-library-while-version_linkInfo.xml" --use_hw_mpy=none --rom_model -o "mlx90614-library-while-version.out" $(ORDERED_OBJS)
+	"C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/bin/cl430" -vmspx --code_model=large --data_model=restricted --near_data=none --use_hw_mpy=none --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"mlx90614-library.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccs1011/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/lib" -i"C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="mlx90614-library_linkInfo.xml" --use_hw_mpy=none --rom_model -o "mlx90614-library.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
-mlx90614-library-while-version.hex: $(EXE_OUTPUTS)
+mlx90614-library.hex: $(EXE_OUTPUTS)
 	@echo 'Building files: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo 'Invoking: MSP430 Hex Utility'
-	"C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/bin/hex430" --memwidth=8 --romwidth=8 -o "mlx90614-library-while-version.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/bin/hex430" --memwidth=8 --romwidth=8 -o "mlx90614-library.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo ' '
 

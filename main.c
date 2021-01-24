@@ -20,18 +20,19 @@ int main(void)
 
     // Energized the sensor
     MLX90614_VCC_HI;
-    mlx90614_delay_ms(35);   //Requiere un tiempo para que el sensor este disponible una vez energizado.
+    MLX90614_delay_ms(35);   //Requiere un tiempo para que el sensor este disponible una vez energizado.
 
     // Configure I2C
-    mlx90614_initPort();
+    MLX90614_initPort();
 
+    // Desabilita el modo de alta impedancia habilitando la configuración establecida previamente.
     PM5CTL0 &= ~LOCKLPM5;
 
     while(1){
 
          // Object Temperature
-         aux = mlx90614_getTemp(MLX90614_TOBJ1);
-         mlx90614_showTemp(aux);
+         aux = MLX90614_getTemp(MLX90614_TOBJ1);
+         MLX90614_showTemp(aux);
          //sleepMode();
          //exitSleepMode();
 

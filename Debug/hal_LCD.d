@@ -10,8 +10,8 @@ hal_LCD.obj: C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/
 hal_LCD.obj: C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/_ti_config.h
 hal_LCD.obj: C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/linkage.h
 hal_LCD.obj: C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/sys/cdefs.h
-hal_LCD.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/lcd_e.h
-hal_LCD.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/inc/hw_memmap.h
+hal_LCD.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/lcd_e.h
+hal_LCD.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/inc/hw_memmap.h
 hal_LCD.obj: C:/ti/ccs1011/ccs/ccs_base/msp430/include/msp430.h
 hal_LCD.obj: C:/ti/ccs1011/ccs/ccs_base/msp430/include/msp430fr2xx_4xxgeneric.h
 hal_LCD.obj: C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/stdint.h
@@ -33,8 +33,8 @@ C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/string.h:
 C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/_ti_config.h: 
 C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/linkage.h: 
 C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/sys/cdefs.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/lcd_e.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/inc/hw_memmap.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/lcd_e.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/inc/hw_memmap.h: 
 C:/ti/ccs1011/ccs/ccs_base/msp430/include/msp430.h: 
 C:/ti/ccs1011/ccs/ccs_base/msp430/include/msp430fr2xx_4xxgeneric.h: 
 C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/stdint.h: 

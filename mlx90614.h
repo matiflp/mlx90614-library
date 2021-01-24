@@ -67,11 +67,13 @@
 /********************************************************************************************/
 /*     Function Prototypes                                                                  */
 /********************************************************************************************/
-void  mlx90614_initPort     ();
-float mlx90614_getTemp      (uint8_t);
-void  mlx90614_sleepMode    ();
-void  mlx90614_delay_ms     (uint16_t);
-void  mlx90614_exitSleepMode();
-void  mlx90614_showTemp     (float);
+void  MLX90614_initPort         (void);
+static void MLX90614_initWrite  (void);
+static void MLX90614_initRead   (void);
+float MLX90614_getTemp          (uint8_t);
+void  MLX90614_sleepMode        (void);
+void  MLX90614_delay_ms         (uint16_t);
+void  MXL90614_exitSleepMode    (void);
+void  MLX90614_showTemp         (float);
 
 #endif /* MLX90614_H_ */

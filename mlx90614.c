@@ -7,7 +7,7 @@
 
 #include "mlx90614.h"
 //***************************************************************************************************************
-void mlx90614_initPort()
+void MLX90614_initPort(void)
 {
     MLX90614_I2C_PORT_SEL |= (MLX90614_I2C_SDA_PIN + MLX90614_I2C_SCL_PIN);
 
@@ -27,97 +27,102 @@ void mlx90614_initPort()
     UCB0IE &= ~UCTXIE0;          // Ensure Interrupts off.  Interrupt disabled.
 
 }
-//***************************************************************************************************************
-float mlx90614_getTemp(uint8_t MLX90614_ADDRESSTEMP)
+//**********************************************************************************************************************************************************
+static void MLX90614_initWrite(void)
+{
+  UCB0CTLW0 |= UCTR;                        // UCTR=1 => Transmit Mode (R/W bit = 0)
+  UCB0IFG &= ~(UCTXIFG0 | UCSTPIFG);
+  UCB0IE &= ~UCRXIE0;                       // disable Receive ready interrupt
+  UCB0IE |= (UCTXIE0 | UCSTPIE);            // enable Transmit ready interrupt
+}
+//**********************************************************************************************************************************************************
+static void MLX90614_initRead(void)
+{
+  UCB0CTLW0 &= ~UCTR;                       // UCTR=0 => Receive Mode (R/W bit = 1)
+  UCB0IFG &= ~(UCRXIFG0 | UCSTPIFG);
+  UCB0IE &= ~(UCTXIE0 | UCSTPIE);           // disable Transmit ready interrupt
+  UCB0IE |= UCRXIE0;                        // enable Receive ready interrupt
+}
+//**********************************************************************************************************************************************************
+float MLX90614_getTemp(uint8_t command)
 {
     float aux = 0.0;
-    uint8_t g_mlxValBytes[3];           // Recieved value byte storage
+    uint8_t temp[3];                            // Recieved value byte storage
 
     // Send object temperature read command
-    UCB0CTLW0 |= UCTR;                  // Change to transmitter.
+    MLX90614_initWrite();                       // Change to transmitter.
 
-    UCB0CTLW0 |= UCTXSTT;               // Send start. Transmit START condition in master mode. Ignored in slave mode.
-                                        // In master receiver mode, a repeated START condition is preceded by a NACK.
-                                        // UCTXSTT is automatically cleared after START condition and address information
-                                        // is transmitted. Ignored in slave mode.
-    while(UCB0CTLW0 & UCTXSTT);         // Wait for TX interrupt flag
+    UCB0CTLW0 |= UCTXSTT;
+    __bis_SR_register(LPM3_bits + GIE);
 
-    UCB0TXBUF = MLX90614_ADDRESSTEMP;   // Send temperature command
-    while(!(UCB0IFG & UCTXIFG0));       // Wait for TX interrupt flag. eUSCI_B transmit interrupt flag 0. UCTXIFG0 is
-                                        // set when UCBxTXBUF is empty in master mode or in slave mode, if the slave
-                                        // address defined in UCBxI2COA0 was on the bus in the same frame.
-
-    UCB0CTLW0 &= ~UCTR;             // Change to receive
-
-    UCB0CTLW0 |= UCTXSTT;           // Send restart
-    while(UCB0CTLW0 & UCTXSTT);     // Wait for restart
+    UCB0TXBUF = command;                        // Send temperature command
+    __bis_SR_register(LPM3_bits + GIE);
 
     // Receive Bytes
-    while(!(UCB0IFG & UCRXIFG0));   // Wait for RX interrupt flag. eUSCI_B receive interrupt flag 0. UCRXIFG0 is
-                                    // set when UCBxRXBUF has received a complete character in master mode or in
-                                    // slave mode, if the slave address defined in UCBxI2COA0 was on the bus in the
-                                    // same frame.
-    g_mlxValBytes[0] = UCB0RXBUF;   // 0th byte.
-                                    // The receive-data buffer is user accessible and contains the last
-                                    // received character from the receive shift register. Reading UCBxRXBUF resets
-                                    // the UCRXIFGx flags.
-    while(!(UCB0IFG & UCRXIFG0));   // Wait for RX interrupt flag
-    g_mlxValBytes[1] = UCB0RXBUF;   // 1st byte.
+    MLX90614_initRead();                        // Change to receive
+
+    UCB0CTLW0 |= UCTXSTT;                       // Send restart
+    __bis_SR_register(LPM3_bits + GIE);         // Wait for restart
+
+    temp[0] = UCB0RXBUF;
+    __bis_SR_register(LPM3_bits + GIE);         // Wait for RX interrupt flag
 
     UCB0CTLW0 |= UCTXSTP;
-    while(UCB0CTLW0 & UCTXSTP);     // Wait for stop
-                                    // Transmit STOP condition in master mode. Ignored in slave mode. In master
-                                    // receiver mode, the STOP condition is preceded by a NACK. UCTXSTP is
-                                    // automatically cleared after STOP is generated. This bit is a don't care, if
-                                    // automatic UCASTPx is different from 01 or 10.
 
-    while(!(UCB0IFG & UCRXIFG0));   // Wait for RX interrupt flag
-    g_mlxValBytes[2] = UCB0RXBUF;   // 2nd byte.
+    temp[1] = UCB0RXBUF;                        // 1st byte.
+    __bis_SR_register(LPM3_bits + GIE);
+
+    temp[2] = UCB0RXBUF;                        // 2nd byte.
+
+    UCB0IE |= UCSTPIE;
+    __bis_SR_register(LPM3_bits + GIE);         // Enter LPM0 w/ interrupts
+
+    UCB0IE &= ~(UCRXIE0 | UCSTPIE);
 
     //calculate Temperature
-    uint16_t tempVals = ( ((uint16_t) g_mlxValBytes[1]) << 8 ) | ( (uint16_t) g_mlxValBytes[0] );
+    uint16_t tempVals = ( ((uint16_t) temp[1]) << 8 ) | ( (uint16_t) temp[0] );
     aux = ((float) tempVals) * 0.02 - 273.15;
 
     return (aux);
 }
 //***************************************************************************************************************
-void mlx90614_sleepMode()
+void MLX90614_delay_ms(const uint16_t ms)
+{
+    TA1CTL = TACLR;
+    TA1CCR0 = ms;
+    TA1CCTL0 |= CCIE;
+    TA1EX0 = TAIDEX_3;
+    TA1CTL = TASSEL_1 + ID_3 + MC_1;
+    __bis_SR_register(LPM3_bits + GIE);
+}
+//***************************************************************************************************************
+void MLX90614_sleepMode(void)
 {
     UCB0CTLW0 |= UCTR;
 
     UCB0CTLW0 |= UCTXSTT;
-    while(UCB0CTLW0 & UCTXSTT);
+    __bis_SR_register(LPM3_bits + GIE);
 
     // Send object temperature sleep mode command
     UCB0TXBUF = MLX90614_SLEEP;
-    while(!(UCB0IFG & UCTXIFG0));
-
-    MLX90614_I2C_SCL_LO;
-}
-//***************************************************************************************************************
-void mlx90614_delay_ms(uint16_t ms)
-{
-    TA0CTL = TACLR;
-    TA0CCR0 = ms;
-    TA0CCTL0 |= CCIE;
-    TA0EX0 = TAIDEX_3;
-    TA0CTL = TASSEL_1 + ID_3 + MC_1;
     __bis_SR_register(LPM3_bits + GIE);
+
+    MLX90614_I2C_SCL_LO
 }
 //***************************************************************************************************************
-void mlx90614_exitSleepMode()
+void MLX90614_exitSleepMode(void)
 {
     //SCL pin high and then PWM/SDA pin low for at least tDDQ > 33ms
-    MLX90614_I2C_SCL_HI;
-    MLX90614_I2C_SDA_LO;
+    MLX90614_I2C_SCL_HI
+    MLX90614_I2C_SDA_LO
 
-    mlx90614_delay_ms(40);
+    MLX90614_delay_ms(40);
 
     UCB0CTLW0 |= UCTXSTP;
     while(UCB0CTLW0 & UCTXSTP);
 }
 //***************************************************************************************************************
-void mlx90614_showTemp(float g_Temp)
+void MLX90614_showTemp(float g_Temp)
 {
     //Show object temperature
     volatile uint16_t aux;
@@ -126,6 +131,7 @@ void mlx90614_showTemp(float g_Temp)
     showChar(aux+48,pos2);
     aux=((int)g_Temp)%10;
     showChar(aux+48,pos3);
+
     // Decimal point
     LCDMEM[pos3+1] |= 0x01;
     volatile float mantisa = g_Temp - (uint16_t)g_Temp;
@@ -134,9 +140,50 @@ void mlx90614_showTemp(float g_Temp)
     showChar(aux+48,pos4);
     aux=((int)dosDecimales)%10;
     showChar(aux+48,pos5);
+
     // Degree symbol
     LCDMEM[pos5+1] |= 0x04;
     showChar('C',pos6);
+}
+//********************************************************************************************************************************************************************
+// I2C interrupt service routine
+#if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
+#pragma vector = USCI_B0_VECTOR
+__interrupt void USCIB0_ISR(void)
+#elif defined(__GNUC__)
+void __attribute__ ((interrupt(USCI_B0_VECTOR))) USCIB0_ISR (void)
+#else
+#error Compiler not supported!
+#endif
+{
+  switch(__even_in_range(UCB0IV, USCI_I2C_UCBIT9IFG))
+  {
+    case USCI_NONE:          break;         // Vector 0: No interrupts
+    case USCI_I2C_UCALIFG:   break;         // Vector 2: ALIFG
+    case USCI_I2C_UCNACKIFG: break;         // Vector 4: NACKIFG
+    case USCI_I2C_UCSTTIFG:                 // Vector 6: STTIFG
+    case USCI_I2C_UCSTPIFG:                 // Vector 8: STPIFG
+
+        __bic_SR_register_on_exit(LPM3_bits + GIE);
+        break;
+
+    case USCI_I2C_UCRXIFG3:  break;         // Vector 10: RXIFG3
+    case USCI_I2C_UCTXIFG3:  break;         // Vector 14: TXIFG3
+    case USCI_I2C_UCRXIFG2:  break;         // Vector 16: RXIFG2
+    case USCI_I2C_UCTXIFG2:  break;         // Vector 18: TXIFG2
+    case USCI_I2C_UCRXIFG1:  break;         // Vector 20: RXIFG1
+    case USCI_I2C_UCTXIFG1:  break;         // Vector 22: TXIFG1
+    case USCI_I2C_UCRXIFG0:                 // Vector 24: RXIFG0
+    case USCI_I2C_UCTXIFG0:                 // Vector 26: TXIFG0
+
+        __bic_SR_register_on_exit(LPM3_bits + GIE);
+        break;
+
+    case USCI_I2C_UCBCNTIFG: break;         // Vector 28: BCNTIFG
+    case USCI_I2C_UCCLTOIFG: break;         // Vector 30: clock low timeout
+    case USCI_I2C_UCBIT9IFG: break;         // Vector 32: 9th bit
+    default: break;
+  }
 }
 //***************************************************************************************************************
 // Timer A0 interrupt service routine --> Timer0_A3 CC0

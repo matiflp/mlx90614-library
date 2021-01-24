@@ -2,8 +2,8 @@
 
 main.obj: ../main.c
 main.obj: ../mlx90614.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/driverlib.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/inc/hw_memmap.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/driverlib.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/inc/hw_memmap.h
 main.obj: C:/ti/ccs1011/ccs/ccs_base/msp430/include/msp430.h
 main.obj: C:/ti/ccs1011/ccs/ccs_base/msp430/include/msp430fr4133.h
 main.obj: C:/ti/ccs1011/ccs/ccs_base/msp430/include/in430.h
@@ -19,35 +19,35 @@ main.obj: C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/mac
 main.obj: C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/machine/_stdint.h
 main.obj: C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/sys/_stdint.h
 main.obj: C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/stdbool.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/rtc.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/sysctl.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/eusci_b_i2c.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/crc.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/lcd_e.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/cs.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/ecomp.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/mpy32.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/framctl.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/adc.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/sac.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/sfr.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/wdt_a.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/icc.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/timer_a.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/pmm.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/eusci_a_uart.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/gpio.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/tlv.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/tia.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/eusci_a_spi.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/timer_b.h
-main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/eusci_b_spi.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/rtc.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/sysctl.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/eusci_b_i2c.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/crc.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/lcd_e.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/cs.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/ecomp.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/mpy32.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/framctl.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/adc.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/sac.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/sfr.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/wdt_a.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/icc.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/timer_a.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/pmm.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/eusci_a_uart.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/gpio.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/tlv.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/tia.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/eusci_a_spi.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/timer_b.h
+main.obj: C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/eusci_b_spi.h
 main.obj: ../hal_LCD.h
 
 ../main.c: 
 ../mlx90614.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/driverlib.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/inc/hw_memmap.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/driverlib.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/inc/hw_memmap.h: 
 C:/ti/ccs1011/ccs/ccs_base/msp430/include/msp430.h: 
 C:/ti/ccs1011/ccs/ccs_base/msp430/include/msp430fr4133.h: 
 C:/ti/ccs1011/ccs/ccs_base/msp430/include/in430.h: 
@@ -63,27 +63,27 @@ C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/machine/_type
 C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/machine/_stdint.h: 
 C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/sys/_stdint.h: 
 C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/stdbool.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/rtc.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/sysctl.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/eusci_b_i2c.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/crc.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/lcd_e.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/cs.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/ecomp.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/mpy32.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/framctl.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/adc.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/sac.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/sfr.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/wdt_a.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/icc.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/timer_a.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/pmm.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/eusci_a_uart.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/gpio.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/tlv.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/tia.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/eusci_a_spi.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/timer_b.h: 
-C:/Users/matil/Documents/workspace_v10/mlx90614-library-while-version/driverlib/MSP430FR2xx_4xx/eusci_b_spi.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/rtc.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/sysctl.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/eusci_b_i2c.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/crc.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/lcd_e.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/cs.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/ecomp.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/mpy32.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/framctl.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/adc.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/sac.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/sfr.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/wdt_a.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/icc.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/timer_a.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/pmm.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/eusci_a_uart.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/gpio.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/tlv.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/tia.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/eusci_a_spi.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/timer_b.h: 
+C:/Users/matil/Documents/workspace_v10/mlx90614-library/driverlib/MSP430FR2xx_4xx/eusci_b_spi.h: 
 ../hal_LCD.h: 
